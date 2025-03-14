@@ -217,7 +217,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1288, 412.0]
+    coordinate: [1008, 412.0]
     rotation: 0
     state: true
 - name: blocks_head_0_0
@@ -228,34 +228,16 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_items: '2880000'
+    num_items: '14400000'
     type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [920, 428.0]
+    coordinate: [816, 428.0]
     rotation: 0
     state: true
-- name: blocks_multiply_const_vxx_0
-  id: blocks_multiply_const_vxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    const: '1'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1112, 428.0]
-    rotation: 0
-    state: enabled
 - name: low_pass_filter_0
   id: low_pass_filter
   parameters:
@@ -269,7 +251,7 @@ blocks:
     interp: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
-    samp_rate: samp_rate
+    samp_rate: 'samp_rate '
     type: fir_filter_ccf
     width: samp_rate/8
     win: window.WIN_HAMMING
@@ -277,7 +259,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [424, 408.0]
+    coordinate: [360, 384.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_0
@@ -297,7 +279,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [688, 412.0]
+    coordinate: [592, 404.0]
     rotation: 0
     state: enabled
 - name: soapy_limesdr_source_0
@@ -319,13 +301,12 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [96, 452.0]
+    coordinate: [64, 444.0]
     rotation: 0
     state: true
 
 connections:
-- [blocks_head_0_0, '0', blocks_multiply_const_vxx_0, '0']
-- [blocks_multiply_const_vxx_0, '0', blocks_file_sink_0, '0']
+- [blocks_head_0_0, '0', blocks_file_sink_0, '0']
 - [low_pass_filter_0, '0', rational_resampler_xxx_0, '0']
 - [rational_resampler_xxx_0, '0', blocks_head_0_0, '0']
 - [soapy_limesdr_source_0, '0', low_pass_filter_0, '0']
