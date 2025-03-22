@@ -109,13 +109,13 @@ class LIMESDR_Recieve_Data(gr.top_block):
             Filter_Decimation,
             firdes.low_pass(
                 1,
-                samp_rate,
+                samp_rate ,
                 samp_rate/4,
                 samp_rate/8,
                 window.WIN_HAMMING,
                 6.76))
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_cc(1)
-        self.blocks_head_0_0 = blocks.head(gr.sizeof_gr_complex*1, 2880000)
+        self.blocks_head_0_0 = blocks.head(gr.sizeof_gr_complex*1, 14400000)
         self.blocks_file_sink_0 = blocks.file_sink(gr.sizeof_gr_complex*1, Storage_File, False)
         self.blocks_file_sink_0.set_unbuffered(False)
 
@@ -136,7 +136,7 @@ class LIMESDR_Recieve_Data(gr.top_block):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.low_pass_filter_0.set_taps(firdes.low_pass(1, self.samp_rate, self.samp_rate/4, self.samp_rate/8, window.WIN_HAMMING, 6.76))
+        self.low_pass_filter_0.set_taps(firdes.low_pass(1, self.samp_rate , self.samp_rate/4, self.samp_rate/8, window.WIN_HAMMING, 6.76))
         self.soapy_limesdr_source_0.set_sample_rate(0, self.samp_rate)
 
     def get_Storage_File(self):
@@ -212,11 +212,6 @@ def main(top_block_cls=LIMESDR_Recieve_Data, options=None):
 
     tb.start()
 
-    try:
-        input('Press Enter to quit: ')
-    except EOFError:
-        pass
-    tb.stop()
     tb.wait()
 
 
