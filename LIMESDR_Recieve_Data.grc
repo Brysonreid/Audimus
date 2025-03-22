@@ -209,7 +209,7 @@ blocks:
     alias: ''
     append: 'False'
     comment: ''
-    file: C:\Users\Bryso\OneDrive\Documents\GitHub\Audimus\Pi\Recordings\SDRdata2025-03-08-00_17_08
+    file: Storage_File
     type: complex
     unbuffered: 'False'
     vlen: '1'
@@ -217,7 +217,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1280, 424.0]
+    coordinate: [1208, 420.0]
     rotation: 0
     state: true
 - name: blocks_head_0_0
@@ -253,7 +253,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1064, 460.0]
+    coordinate: [1016, 428.0]
     rotation: 0
     state: true
 - name: low_pass_filter_0
@@ -297,7 +297,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [592, 404.0]
+    coordinate: [608, 372.0]
     rotation: 0
     state: enabled
 - name: soapy_limesdr_source_0

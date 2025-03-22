@@ -35,6 +35,11 @@ class LoadFile2(gr.top_block):
         # Variables
         ##################################################
         self.samp_rate = samp_rate = 32000
+        self._Storage_File_config = configparser.ConfigParser()
+        self._Storage_File_config.read('LimeSDRConf.ini')
+        try: Storage_File = self._Storage_File_config.get('Storage', 'File')
+        except: Storage_File = 'Recordings\\SDRdata'
+        self.Storage_File = Storage_File
         self._Demod_Quadrature_config = configparser.ConfigParser()
         self._Demod_Quadrature_config.read('LimeSDRConf.ini')
         try: Demod_Quadrature = self._Demod_Quadrature_config.getfloat('Demodulation', 'Quadrature')
@@ -54,7 +59,7 @@ class LoadFile2(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, 'C:\\Users\\Bryso\\OneDrive\\Documents\\GitHub\\Audimus\\Pi\\Recordings\\SDRdata2025-03-08-00_17_08', False, 0, 0)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, Storage_File, False, 0, 0)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.audio_sink_0 = audio.sink(48000, '', True)
         self.analog_wfm_rcv_0 = analog.wfm_rcv(
@@ -76,6 +81,13 @@ class LoadFile2(gr.top_block):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
+
+    def get_Storage_File(self):
+        return self.Storage_File
+
+    def set_Storage_File(self, Storage_File):
+        self.Storage_File = Storage_File
+        self.blocks_file_source_0.open(self.Storage_File, False)
 
     def get_Demod_Quadrature(self):
         return self.Demod_Quadrature

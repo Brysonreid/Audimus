@@ -20,6 +20,7 @@ import signal
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
+import configparser
 
 
 
@@ -33,11 +34,16 @@ class LoadFile(gr.top_block):
         # Variables
         ##################################################
         self.samp_rate = samp_rate = 32000
+        self._Storage_File_config = configparser.ConfigParser()
+        self._Storage_File_config.read('LimeSDRConf.ini')
+        try: Storage_File = self._Storage_File_config.get('Storage', 'File')
+        except: Storage_File = 'Recordings\\SDRdata'
+        self.Storage_File = Storage_File
 
         ##################################################
         # Blocks
         ##################################################
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_float*1, 'C:\\Users\\Bryso\\OneDrive\\Documents\\GitHub\\Audimus\\Pi\\Recordings\\SDRdata2025-03-22-14_38_00', False, 0, 0)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_float*1, Storage_File, False, 0, 0)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.audio_sink_0 = audio.sink(48000, '', True)
 
@@ -54,6 +60,13 @@ class LoadFile(gr.top_block):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
+
+    def get_Storage_File(self):
+        return self.Storage_File
+
+    def set_Storage_File(self, Storage_File):
+        self.Storage_File = Storage_File
+        self.blocks_file_source_0.open(self.Storage_File, False)
 
 
 

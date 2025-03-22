@@ -32,6 +32,23 @@ options:
     state: enabled
 
 blocks:
+- name: Storage_File
+  id: variable_config
+  parameters:
+    comment: ''
+    config_file: LimeSDRConf.ini
+    option: File
+    section: Storage
+    type: string
+    value: Recordings\SDRdata
+    writeback: None
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [456, 48.0]
+    rotation: 0
+    state: true
 - name: samp_rate
   id: variable
   parameters:
@@ -58,7 +75,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [592, 244.0]
+    coordinate: [552, 228.0]
     rotation: 0
     state: true
 - name: blocks_file_source_0
@@ -68,7 +85,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: C:\Users\Bryso\OneDrive\Documents\GitHub\Audimus\Pi\Recordings\SDRdata2025-03-22-14_38_00
+    file: Storage_File
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
