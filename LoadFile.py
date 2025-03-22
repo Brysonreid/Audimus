@@ -37,7 +37,7 @@ class LoadFile(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_float*1, 'SDRdata', False, 0, 0)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_float*1, 'C:\\Users\\Bryso\\OneDrive\\Documents\\GitHub\\Audimus\\Pi\\Recordings\\SDRdata2025-03-22-14_38_00', False, 0, 0)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.audio_sink_0 = audio.sink(48000, '', True)
 

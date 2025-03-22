@@ -27,7 +27,7 @@ options:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [24, 68.0]
+    coordinate: [56, 36.0]
     rotation: 0
     state: enabled
 
@@ -41,7 +41,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12]
+    coordinate: [352, 44.0]
     rotation: 0
     state: enabled
 - name: audio_sink_0
@@ -58,7 +58,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [480, 244.0]
+    coordinate: [592, 244.0]
     rotation: 0
     state: true
 - name: blocks_file_source_0
@@ -68,7 +68,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: SDRdata
+    file: C:\Users\Bryso\OneDrive\Documents\GitHub\Audimus\Pi\Recordings\SDRdata2025-03-22-14_38_00
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'

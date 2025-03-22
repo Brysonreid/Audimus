@@ -46,7 +46,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [680, 48.0]
+    coordinate: [768, 32.0]
     rotation: 0
     state: true
 - name: Demod_Decimation
@@ -63,7 +63,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [352, 48.0]
+    coordinate: [288, 16.0]
     rotation: 0
     state: true
 - name: Demod_Quadrature
@@ -80,7 +80,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 48.0]
+    coordinate: [520, 32.0]
     rotation: 0
     state: true
 - name: samp_rate
@@ -92,7 +92,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12]
+    coordinate: [1056, 60.0]
     rotation: 0
     state: enabled
 - name: analog_wfm_rcv_0
@@ -136,7 +136,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: SDRdata
+    file: C:\Users\Bryso\OneDrive\Documents\GitHub\Audimus\Pi\Recordings\SDRdata2025-03-08-00_17_08
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -148,7 +148,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [208, 204.0]
+    coordinate: [136, 340.0]
     rotation: 0
     state: true
 
