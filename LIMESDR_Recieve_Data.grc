@@ -46,7 +46,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [704, 168.0]
+    coordinate: [968, 216.0]
     rotation: 0
     state: true
 - name: Center_Frequency
@@ -63,7 +63,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [384, 32.0]
+    coordinate: [512, 24.0]
     rotation: 0
     state: true
 - name: Demod_Decimation
@@ -80,7 +80,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [384, 168.0]
+    coordinate: [512, 216.0]
     rotation: 0
     state: true
 - name: Demod_Quadrature
@@ -97,7 +97,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [544, 168.0]
+    coordinate: [736, 216.0]
     rotation: 0
     state: true
 - name: Filter_Cut_Off_Frequency
@@ -114,7 +114,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [704, 32.0]
+    coordinate: [960, 24.0]
     rotation: 0
     state: true
 - name: Filter_Decimation
@@ -131,7 +131,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [544, 32.0]
+    coordinate: [736, 24.0]
     rotation: 0
     state: true
 - name: Filter_Transmission_Width
@@ -148,7 +148,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [864, 32.0]
+    coordinate: [1184, 24.0]
     rotation: 0
     state: true
 - name: Interpolation
@@ -165,7 +165,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 168.0]
+    coordinate: [296, 216.0]
     rotation: 0
     state: true
 - name: Storage_File
@@ -182,7 +182,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [864, 168.0]
+    coordinate: [1192, 216.0]
     rotation: 0
     state: true
 - name: samp_rate
@@ -199,7 +199,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 32.0]
+    coordinate: [296, 16.0]
     rotation: 0
     state: true
 - name: blocks_file_sink_0
@@ -217,7 +217,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1208, 420.0]
+    coordinate: [1480, 512.0]
     rotation: 0
     state: true
 - name: blocks_head_0_0
@@ -235,7 +235,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [816, 428.0]
+    coordinate: [944, 484.0]
     rotation: 0
     state: true
 - name: blocks_multiply_const_vxx_0
@@ -253,7 +253,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1016, 428.0]
+    coordinate: [1176, 484.0]
     rotation: 0
     state: true
 - name: low_pass_filter_0
@@ -277,7 +277,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [360, 384.0]
+    coordinate: [360, 424.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_0
@@ -297,7 +297,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [608, 372.0]
+    coordinate: [664, 444.0]
     rotation: 0
     state: enabled
 - name: soapy_limesdr_source_0
@@ -319,7 +319,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 444.0]
+    coordinate: [64, 500.0]
     rotation: 0
     state: true
 
