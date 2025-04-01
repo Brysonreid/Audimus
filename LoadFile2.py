@@ -59,7 +59,8 @@ class LoadFile2(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, Storage_File, False, 0, 0)
+        self.blocks_interleaved_short_to_complex_0 = blocks.interleaved_short_to_complex(False, False,1.0)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_short*1, Storage_File, False, 0, 0)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.audio_sink_0 = audio.sink(48000, '', True)
         self.analog_wfm_rcv_0 = analog.wfm_rcv(
@@ -73,7 +74,8 @@ class LoadFile2(gr.top_block):
         # Connections
         ##################################################
         self.connect((self.analog_wfm_rcv_0, 0), (self.audio_sink_0, 0))
-        self.connect((self.blocks_file_source_0, 0), (self.analog_wfm_rcv_0, 0))
+        self.connect((self.blocks_file_source_0, 0), (self.blocks_interleaved_short_to_complex_0, 0))
+        self.connect((self.blocks_interleaved_short_to_complex_0, 0), (self.analog_wfm_rcv_0, 0))
 
 
     def get_samp_rate(self):

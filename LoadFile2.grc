@@ -126,7 +126,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [480, 236.0]
+    coordinate: [544, 236.0]
     rotation: 0
     state: enabled
 - name: audio_sink_0
@@ -159,19 +159,38 @@ blocks:
     minoutbuf: '0'
     offset: '0'
     repeat: 'False'
-    type: complex
+    type: short
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [168, 236.0]
+    coordinate: [112, 236.0]
+    rotation: 0
+    state: true
+- name: blocks_interleaved_short_to_complex_0
+  id: blocks_interleaved_short_to_complex
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale_factor: '1.0'
+    swap: 'False'
+    vector_input: 'False'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [336, 236.0]
     rotation: 0
     state: true
 
 connections:
 - [analog_wfm_rcv_0, '0', audio_sink_0, '0']
-- [blocks_file_source_0, '0', analog_wfm_rcv_0, '0']
+- [blocks_file_source_0, '0', blocks_interleaved_short_to_complex_0, '0']
+- [blocks_interleaved_short_to_complex_0, '0', analog_wfm_rcv_0, '0']
 
 metadata:
   file_format: 1

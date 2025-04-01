@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: no_gui
     hier_block_src_path: '.:'
-    id: LIMESDR_Recieve_Data
+    id: TestSample
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -22,7 +22,7 @@ options:
     run_options: run
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: LIMESDR_Recieve_Data
+    title: Not titled yet
   states:
     bus_sink: false
     bus_source: false
@@ -46,7 +46,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [968, 216.0]
+    coordinate: [672, 240.0]
     rotation: 0
     state: true
 - name: Center_Frequency
@@ -63,7 +63,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 24.0]
+    coordinate: [352, 104.0]
     rotation: 0
     state: true
 - name: Demod_Decimation
@@ -74,13 +74,13 @@ blocks:
     option: Decimation
     section: Demodulation
     type: int
-    value: '10'
+    value: '16'
     writeback: None
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 216.0]
+    coordinate: [352, 240.0]
     rotation: 0
     state: true
 - name: Demod_Quadrature
@@ -97,7 +97,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 216.0]
+    coordinate: [512, 240.0]
     rotation: 0
     state: true
 - name: Filter_Cut_Off_Frequency
@@ -114,7 +114,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [960, 24.0]
+    coordinate: [672, 104.0]
     rotation: 0
     state: true
 - name: Filter_Decimation
@@ -131,7 +131,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 24.0]
+    coordinate: [512, 104.0]
     rotation: 0
     state: true
 - name: Filter_Transmission_Width
@@ -148,7 +148,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1184, 24.0]
+    coordinate: [832, 104.0]
     rotation: 0
     state: true
 - name: Interpolation
@@ -159,13 +159,13 @@ blocks:
     option: Interpolation
     section: Demodulation
     type: int
-    value: '1'
+    value: '5'
     writeback: None
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [296, 216.0]
+    coordinate: [200, 104.0]
     rotation: 0
     state: true
 - name: Storage_File
@@ -182,10 +182,22 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1192, 216.0]
+    coordinate: [832, 240.0]
     rotation: 0
     state: true
 - name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '2400000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [96, 220.0]
+    rotation: 0
+    state: true
+- name: samp_rate_0
   id: variable_config
   parameters:
     comment: ''
@@ -193,36 +205,16 @@ blocks:
     option: Sample_Rate
     section: Radio
     type: real
-    value: '2400000'
+    value: '768000'
     writeback: None
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [296, 16.0]
+    coordinate: [1072, 88.0]
     rotation: 0
     state: true
-- name: analog_agc_xx_0
-  id: analog_agc_xx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    gain: '1.0'
-    max_gain: '10'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    rate: 5e-3
-    reference: '1.0'
-    type: complex
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [640, 420.0]
-    rotation: 0
-    state: true
-- name: analog_wfm_rcv_0_0
+- name: analog_wfm_rcv_0
   id: analog_wfm_rcv
   parameters:
     affinity: ''
@@ -236,10 +228,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [912, 404.0]
+    coordinate: [832, 460.0]
     rotation: 0
     state: enabled
-- name: audio_sink_0_0
+- name: audio_sink_0
   id: audio_sink
   parameters:
     affinity: ''
@@ -253,45 +245,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1504, 452.0]
+    coordinate: [1496, 452.0]
     rotation: 0
     state: true
-- name: blocks_complex_to_interleaved_short_0
-  id: blocks_complex_to_interleaved_short
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    scale_factor: '1.0'
-    vector_output: 'False'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [704, 604.0]
-    rotation: 0
-    state: true
-- name: blocks_file_sink_0
-  id: blocks_file_sink
-  parameters:
-    affinity: ''
-    alias: ''
-    append: 'False'
-    comment: ''
-    file: Storage_File
-    type: short
-    unbuffered: 'False'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [896, 700.0]
-    rotation: 0
-    state: true
-- name: blocks_head_0_0_0
+- name: blocks_head_0_0
   id: blocks_head
   parameters:
     affinity: ''
@@ -306,28 +263,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1104, 452.0]
+    coordinate: [1072, 468.0]
     rotation: 0
     state: true
-- name: blocks_interleaved_short_to_complex_0
-  id: blocks_interleaved_short_to_complex
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    scale_factor: '1.0'
-    swap: 'False'
-    vector_input: 'False'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [896, 604.0]
-    rotation: 0
-    state: true
-- name: blocks_multiply_const_vxx_0_1
+- name: blocks_multiply_const_vxx_0
   id: blocks_multiply_const_vxx
   parameters:
     affinity: ''
@@ -342,10 +281,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1272, 452.0]
+    coordinate: [1264, 452.0]
     rotation: 0
     state: enabled
-- name: low_pass_filter_0_0
+- name: low_pass_filter_0
   id: low_pass_filter
   parameters:
     affinity: ''
@@ -366,10 +305,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [224, 400.0]
+    coordinate: [328, 416.0]
     rotation: 0
     state: enabled
-- name: rational_resampler_xxx_0_0
+- name: rational_resampler_xxx_0
   id: rational_resampler_xxx
   parameters:
     affinity: ''
@@ -386,10 +325,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [424, 420.0]
+    coordinate: [568, 436.0]
     rotation: 0
     state: enabled
-- name: soapy_limesdr_source_0_0
+- name: soapy_limesdr_source_0
   id: soapy_limesdr_source
   parameters:
     affinity: ''
@@ -408,22 +347,17 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [0, 436.0]
+    coordinate: [48, 452.0]
     rotation: 0
     state: true
 
 connections:
-- [analog_agc_xx_0, '0', blocks_complex_to_interleaved_short_0, '0']
-- [analog_wfm_rcv_0_0, '0', blocks_head_0_0_0, '0']
-- [blocks_complex_to_interleaved_short_0, '0', blocks_file_sink_0, '0']
-- [blocks_complex_to_interleaved_short_0, '0', blocks_interleaved_short_to_complex_0,
-  '0']
-- [blocks_head_0_0_0, '0', blocks_multiply_const_vxx_0_1, '0']
-- [blocks_interleaved_short_to_complex_0, '0', analog_wfm_rcv_0_0, '0']
-- [blocks_multiply_const_vxx_0_1, '0', audio_sink_0_0, '0']
-- [low_pass_filter_0_0, '0', rational_resampler_xxx_0_0, '0']
-- [rational_resampler_xxx_0_0, '0', analog_agc_xx_0, '0']
-- [soapy_limesdr_source_0_0, '0', low_pass_filter_0_0, '0']
+- [analog_wfm_rcv_0, '0', blocks_head_0_0, '0']
+- [blocks_head_0_0, '0', blocks_multiply_const_vxx_0, '0']
+- [blocks_multiply_const_vxx_0, '0', audio_sink_0, '0']
+- [low_pass_filter_0, '0', rational_resampler_xxx_0, '0']
+- [rational_resampler_xxx_0, '0', analog_wfm_rcv_0, '0']
+- [soapy_limesdr_source_0, '0', low_pass_filter_0, '0']
 
 metadata:
   file_format: 1
