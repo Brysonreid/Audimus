@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: no_gui
     hier_block_src_path: '.:'
-    id: LIMESDR_Recieve_Data
+    id: LIMESDR_Recieve_Data_demo
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -22,7 +22,7 @@ options:
     run_options: run
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: LIMESDR_Recieve_Data
+    title: LIMESDR_Recieve_Data_demo
   states:
     bus_sink: false
     bus_source: false
@@ -229,7 +229,7 @@ blocks:
     alias: ''
     append: 'False'
     comment: ''
-    file: Storage_File
+    file: Recordings\SDRdataRaw
     type: complex
     unbuffered: 'False'
     vlen: '1'
@@ -248,7 +248,7 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_items: '57600000'
+    num_items: '7200000'
     type: complex
     vlen: '1'
   states:

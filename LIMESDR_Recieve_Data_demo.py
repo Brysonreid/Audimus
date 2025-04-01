@@ -5,12 +5,11 @@
 # SPDX-License-Identifier: GPL-3.0
 #
 # GNU Radio Python Flow Graph
-# Title: LIMESDR_Recieve_Data
+# Title: LIMESDR_Recieve_Data_demo
 # Author: Bryson
 # GNU Radio version: v3.9.2.0-85-g08bb05c1
 
 from gnuradio import analog
-from gnuradio import audio
 from gnuradio import blocks
 from gnuradio import filter
 from gnuradio.filter import firdes
@@ -27,10 +26,10 @@ import configparser
 
 
 
-class LIMESDR_Recieve_Data(gr.top_block):
+class LIMESDR_Recieve_Data_demo(gr.top_block):
 
     def __init__(self):
-        gr.top_block.__init__(self, "LIMESDR_Recieve_Data", catch_exceptions=True)
+        gr.top_block.__init__(self, "LIMESDR_Recieve_Data_demo", catch_exceptions=True)
 
         ##################################################
         # Variables
@@ -116,15 +115,9 @@ class LIMESDR_Recieve_Data(gr.top_block):
                 samp_rate/8,
                 window.WIN_HAMMING,
                 6.76))
-        self.blocks_multiply_const_vxx_0_1 = blocks.multiply_const_ff(1)
-        self.blocks_head_0_0_0 = blocks.head(gr.sizeof_float*1, 14400000)
+        self.blocks_head_0 = blocks.head(gr.sizeof_gr_complex*1, 7200000)
         self.blocks_file_sink_0_0 = blocks.file_sink(gr.sizeof_gr_complex*1, Storage_File, False)
         self.blocks_file_sink_0_0.set_unbuffered(False)
-        self.audio_sink_0_0 = audio.sink(48000, '', True)
-        self.analog_wfm_rcv_0_0 = analog.wfm_rcv(
-        	quad_rate=Demod_Quadrature,
-        	audio_decimation=Audio_Decimation,
-        )
         self.analog_agc_xx_0 = analog.agc_cc(5e-3, 1.0, 1.0)
         self.analog_agc_xx_0.set_max_gain(65536)
 
@@ -133,11 +126,8 @@ class LIMESDR_Recieve_Data(gr.top_block):
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.analog_agc_xx_0, 0), (self.analog_wfm_rcv_0_0, 0))
-        self.connect((self.analog_agc_xx_0, 0), (self.blocks_file_sink_0_0, 0))
-        self.connect((self.analog_wfm_rcv_0_0, 0), (self.blocks_head_0_0_0, 0))
-        self.connect((self.blocks_head_0_0_0, 0), (self.blocks_multiply_const_vxx_0_1, 0))
-        self.connect((self.blocks_multiply_const_vxx_0_1, 0), (self.audio_sink_0_0, 0))
+        self.connect((self.analog_agc_xx_0, 0), (self.blocks_head_0, 0))
+        self.connect((self.blocks_head_0, 0), (self.blocks_file_sink_0_0, 0))
         self.connect((self.low_pass_filter_0_0, 0), (self.rational_resampler_xxx_0_0, 0))
         self.connect((self.rational_resampler_xxx_0_0, 0), (self.analog_agc_xx_0, 0))
         self.connect((self.soapy_limesdr_source_0_0, 0), (self.low_pass_filter_0_0, 0))
@@ -210,7 +200,7 @@ class LIMESDR_Recieve_Data(gr.top_block):
 
 
 
-def main(top_block_cls=LIMESDR_Recieve_Data, options=None):
+def main(top_block_cls=LIMESDR_Recieve_Data_demo, options=None):
     tb = top_block_cls()
 
     def sig_handler(sig=None, frame=None):
