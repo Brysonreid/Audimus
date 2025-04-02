@@ -109,7 +109,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1056, 60.0]
+    coordinate: [1008, 68.0]
     rotation: 0
     state: enabled
 - name: analog_wfm_rcv_0
@@ -126,7 +126,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [544, 236.0]
+    coordinate: [664, 276.0]
     rotation: 0
     state: enabled
 - name: audio_sink_0
@@ -143,7 +143,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [784, 244.0]
+    coordinate: [968, 284.0]
     rotation: 0
     state: true
 - name: blocks_file_source_0
@@ -183,7 +183,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [352, 268.0]
+    coordinate: [376, 276.0]
     rotation: 0
     state: true
 
