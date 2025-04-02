@@ -30,19 +30,20 @@ for I in range(1,6):
     try:
         check = config['Storage']['file'+str(I)]
         print("Checked")
+        #do nothing from here
     except:
         config['Storage']['file'+str(I)] = NewName
         print(NewName)
-
-    with open('LimeSDRConf.ini', 'w') as configfile:
-      config.write(configfile)
+        with open('LimeSDRConf.ini', 'w') as configfile:
+            config.write(configfile)
+        #run d
 
 #delete recordings older than X days
 print("Running Start.py")
 
+print(config['Storage']['folder'])
 
-
-
+config['Storage']['file']
 
 
 
