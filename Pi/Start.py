@@ -2,44 +2,58 @@ import configparser
 import datetime
 import numpy as np
 import os
-
-
-#Get updated time from time file
-DateTimeFile = 'DateTime.txt'
-TIME = str(np.loadtxt(DateTimeFile, dtype = str))
-print(TIME)
-
-newpath = "Recordings/" +TIME
-
-#assuming a folder does not exist from this time
-#if not os.path.exists(newpath):
-    #os.makedirs(newpath)
-#else:
-    #pass
+#import receive_data
+import compressFiles
+import time
+#delete recordings older than X days
+print("Running Start.py")
 
 
 #update new recording name
 config = configparser.ConfigParser()
 config.read('LimeSDRConf.ini')
 
+
+#Get updated time from time file
+DateTimeFile = 'DateTime.txt'
+TIME = str(np.loadtxt(DateTimeFile, dtype = str))
+
+TIME = "Pass"+TIME
+
+
+newpath = "Recordings/" +TIME
+
+#assuming a folder does not exist from this time
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
+    print("NewPath")
+else:
+    pass
+
+
+#update folder name in configfile
 config['Storage']['folder'] = newpath
 
-
+Files = os.listdir(newpath)
 for I in range(1,6):
-    NewName = newpath+'/Section'+str(I)
-    try:
-        check = config['Storage']['file'+str(I)]
-        print("Checked")
-        #do nothing from here
-    except:
-        config['Storage']['file'+str(I)] = NewName
-        print(NewName)
+    
+    Filename = 'Section'+str(I)
+    
+    if not Filename in Files:
+        NewName = newpath+'/'+Filename
+        config['Storage']['file'] = NewName
+        
         with open('LimeSDRConf.ini', 'w') as configfile:
             config.write(configfile)
-        #run d
+            
+        #receive_data.main()
+        #compressFiles.main()
+        time.wait()
+        print(NewName)
+        
 
-#delete recordings older than X days
-print("Running Start.py")
+
+
 
 print(config['Storage']['folder'])
 

@@ -60,7 +60,7 @@ class LoadFile2_demo(gr.top_block):
         # Blocks
         ##################################################
         self.blocks_interleaved_short_to_complex_0 = blocks.interleaved_short_to_complex(False, False,1.0)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_short*1, 'C:\\Users\\Bryso\\OneDrive\\Documents\\GitHub\\Audimus\\Pi\\Recordings\\SDRdata2025-04-02-15_06_03_compress', False, 0, 0)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_short*1, 'C:\\Users\\Bryso\\OneDrive\\Documents\\GitHub\\Audimus\\Pi\\Recordings\\SDRdata2025-04-02-16_18_321', False, 0, 0)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.audio_sink_0 = audio.sink(48000, '', True)
         self.analog_wfm_rcv_0 = analog.wfm_rcv(
