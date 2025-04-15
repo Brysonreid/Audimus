@@ -1,27 +1,24 @@
+
 import configparser
 import datetime
-import numpy as np
-import os
-#import receive_data
+import receive_data
 import compressFiles
+import os
 import time
-#delete recordings older than X days
-print("Running Start.py")
 
+print("Running Start")
 
 #update new recording name
 config = configparser.ConfigParser()
 config.read('LimeSDRConf.ini')
 
+Now = datetime.datetime.now()
 
-#Get updated time from time file
-DateTimeFile = 'DateTime.txt'
-TIME = str(np.loadtxt(DateTimeFile, dtype = str))
+newpath = "/home/pi/Audimus/Recordings/Pass" +Now.strftime('%Y-%m-%d_%H-%M-%S')
+print(newpath)
 
-TIME = "Pass"+TIME
+config['Storage']['folder']= newpath
 
-
-newpath = "Recordings/" +TIME
 
 #assuming a folder does not exist from this time
 if not os.path.exists(newpath):
@@ -30,35 +27,23 @@ if not os.path.exists(newpath):
 else:
     pass
 
-
-#update folder name in configfile
-config['Storage']['folder'] = newpath
-
 Files = os.listdir(newpath)
+
+
 for I in range(1,6):
-    
+
     Filename = 'Section'+str(I)
-    
+
     if not Filename in Files:
         NewName = newpath+'/'+Filename
         config['Storage']['file'] = NewName
-        
+
         with open('LimeSDRConf.ini', 'w') as configfile:
             config.write(configfile)
-            
-        #receive_data.main()
-        #compressFiles.main()
-        time.wait()
-        print(NewName)
-        
 
-
-
-
-print(config['Storage']['folder'])
-
-config['Storage']['file']
-
+        receive_data.main()
+        compressFiles.main()
+       
 
 
 
