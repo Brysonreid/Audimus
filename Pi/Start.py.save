@@ -1,0 +1,48 @@
+import configparser
+import datetime
+import receive_data
+import compressFiles
+import os
+import time
+import receive_data2
+
+print("Running Start")
+
+#update new recording name
+config = configparser.ConfigParser()
+config.read('LimeSDRConf.ini')
+
+Now = datetime.datetime.now()
+
+newpath = "/home/pi/Audimus/Recordings/Pass" +Now.strftime('%Y-%m-%d_%H-%M-%S')
+print(newpath)
+
+config['Storage']['folder']= newpath
+
+
+#assuming a folder does not exist from this time
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
+    print("NewPath")
+else:
+    pass
+
+Files = os.listdir(newpath)
+for I in range(1,1):
+
+    Filename = 'Section'+str(I)
+
+    if not Filename in Files:
+        NewName = newpath+'/'+Filename
+        config['Storage']['file'] = NewName
+
+        with open('LimeSDRConf.ini', 'w') as configfile:
+            config.write(configfile)
+
+        receive_data.main()
+        compressFiles.main()
+        time.sleep(5)
+        print(NewName)
+
+
+

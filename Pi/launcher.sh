@@ -12,9 +12,18 @@ echo "$Pi_Temp" >> pi_temp.log
 sudo python Start.py
 
 #start recording
-sudo python LimeSDR_FM_Rx_Headless5.py
+sudo python receive_data.py
+
+sudo python compressFiles.py
+
+sudo python receive_data2.py
+
+sudo python compressFiles.py
+
 
 Pi_Temp=$(vcgencmd measure_temp)
 echo "$Pi_Temp" >> pi_temp.log
+
+sudo python compressFiles.py
 
 cd /

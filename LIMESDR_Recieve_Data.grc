@@ -32,23 +32,6 @@ options:
     state: enabled
 
 blocks:
-- name: Audio_Decimation
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: LimeSDRConf.ini
-    option: Audio_Decimation
-    section: Demodulation
-    type: int
-    value: '5'
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [968, 216.0]
-    rotation: 0
-    state: true
 - name: Center_Frequency
   id: variable_config
   parameters:
@@ -63,58 +46,24 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 24.0]
+    coordinate: [456, 16.0]
     rotation: 0
     state: true
-- name: Demod_Decimation
+- name: File_Size
   id: variable_config
   parameters:
     comment: ''
     config_file: LimeSDRConf.ini
-    option: Decimation
-    section: Demodulation
+    option: FileSize
+    section: Storage
     type: int
-    value: '10'
+    value: '57600000'
     writeback: None
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 216.0]
-    rotation: 0
-    state: true
-- name: Demod_Quadrature
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: LimeSDRConf.ini
-    option: Quadrature
-    section: Demodulation
-    type: real
-    value: '240000'
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [736, 216.0]
-    rotation: 0
-    state: true
-- name: Filter_Cut_Off_Frequency
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: LimeSDRConf.ini
-    option: Cut_Off_Frequency
-    section: Filter
-    type: real
-    value: '75000'
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [960, 24.0]
+    coordinate: [968, 16.0]
     rotation: 0
     state: true
 - name: Filter_Decimation
@@ -131,41 +80,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 24.0]
-    rotation: 0
-    state: true
-- name: Filter_Transmission_Width
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: LimeSDRConf.ini
-    option: Transmission_Width
-    section: Filter
-    type: real
-    value: '25000'
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1184, 24.0]
-    rotation: 0
-    state: true
-- name: Interpolation
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: LimeSDRConf.ini
-    option: Interpolation
-    section: Demodulation
-    type: int
-    value: '1'
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [296, 216.0]
+    coordinate: [624, 16.0]
     rotation: 0
     state: true
 - name: Storage_File
@@ -182,7 +97,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1192, 216.0]
+    coordinate: [784, 16.0]
     rotation: 0
     state: true
 - name: samp_rate
@@ -248,7 +163,7 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_items: '57600000'
+    num_items: File_Size
     type: complex
     vlen: '1'
   states:

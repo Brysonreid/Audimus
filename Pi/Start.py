@@ -5,6 +5,7 @@ import receive_data
 import compressFiles
 import os
 import time
+import receive_data2
 
 print("Running Start")
 
@@ -29,7 +30,7 @@ else:
 
 Files = os.listdir(newpath)
 
-
+'''
 for I in range(1,6):
 
     Filename = 'Section'+str(I)
@@ -43,10 +44,18 @@ for I in range(1,6):
 
         receive_data.main()
         compressFiles.main()
-       
+        time.sleep(5)
+        print(NewName)
 
+receive_data.main()
+compressFiles.main()
 
+time.sleep(30)
 
+print("starting seconds recording")
+receive_data2.main()
+compressFiles.main()
 
+'''
 
 

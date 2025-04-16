@@ -1,6 +1,6 @@
 import numpy as np
 import configparser
-
+import os
 
 def main():
     config = configparser.ConfigParser()
@@ -12,16 +12,14 @@ def main():
     print(inputFile)
     
     Offset = 24000000
-
-
-
+    size = os.path.getsize(inputFile)
+    Sections = int(size/Offset)
     
 
-
-
+    
     with open(output_filename,"w") as f:
     
-        for I in range(19):
+        for I in range(Sections):
         
             print(I)
             with open(inputFile) as F:
@@ -35,6 +33,11 @@ def main():
         int8=((iq_data/np.max(np.abs(iq_data)))*127).astype(np.int8)
         int8.tofile(f)
 
+    
+    if (os.path.getsize(output_filename) == (os.path.getsize(inputFile)/4)):
+        os.remove(inputFile)
+        print("Input File:"+str(inputFile)+" deleted")
+    
     
     print("fileCompressed")
 
